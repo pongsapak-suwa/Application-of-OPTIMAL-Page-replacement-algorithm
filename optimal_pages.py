@@ -11,11 +11,11 @@ frams = []
 total_frams = []
 page_falt = []
 num_falt = 0
-print("Enter the number of frames: ",end="")
+print("Enter the number of frames: ")
 #num_pages =  int(input())
 num_pages = 3
 check_optimal = [None for i in range(num_pages)]
-for i in range(totality_pages-1):
+for i in range(0,totality_pages):
     if pages[i] not in frams:
         page_falt.append(["Miss"])
         num_falt+=1
@@ -30,16 +30,15 @@ for i in range(totality_pages-1):
                     check_optimal[j] = pages[i+1:].index(frams[j])
             if pages[i] not in frams:
                 frams[check_optimal.index(max(check_optimal))] = pages[i]
-        total_frams.append([])
-        for t in list(frams):
-            total_frams[-1].append(t)
+        
     else:
         page_falt.append(["Hit"])
-        total_frams.append([])
-        for t in list(frams):
-            total_frams[-1].append(t)
+        
+    total_frams.append([])
+    for t in list(frams):
+        total_frams[-1].append(t)
 
-for x in range(totality_pages-1):
+for x in range(0,totality_pages):
     print(pages[x] , end="")
     print(page_falt[x], end="")
     for p in total_frams[x]:
